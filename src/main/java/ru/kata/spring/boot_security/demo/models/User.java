@@ -91,4 +91,10 @@ public class User {
         this.lastname = lastname;
         this.email = email;
     }
+
+    public User(String username, String password, Collection<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
 }
