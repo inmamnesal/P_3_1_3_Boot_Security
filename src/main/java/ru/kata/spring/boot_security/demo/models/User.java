@@ -20,7 +20,7 @@ public class User {
 
     private String password;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles", schema = "first_db",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -93,6 +93,15 @@ public class User {
     }
 
     public User(String username, String password, Collection<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    public User(String email, String name, String lastname, String username, String password, Collection<Role> roles) {
+        this.email = email;
+        this.name = name;
+        this.lastname = lastname;
         this.username = username;
         this.password = password;
         this.roles = roles;
